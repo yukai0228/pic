@@ -4,7 +4,7 @@
  * @Date: 2020-03-27 14:45:07
  * @LastEditors: yumusb
  * @LastEditTime: 2020-03-27 14:45:34
- * @Description: 
+ * @Description:
  */
 /*
 URL https://github.com/yumusb/autoPicCdn
@@ -13,10 +13,10 @@ URL https://github.com/yumusb/autoPicCdn
 error_reporting(0);
 header('Content-Type: text/html; charset=UTF-8');
 date_default_timezone_set("PRC");
-define("REPO","testforapi");//必须是下面用户名下的公开仓库
-define("USER","yumusb");//必须是当前GitHub用户名
-define("MAIL","yumusb@foxmail.com");//
-define("TOKEN","YourToken");//https://github.com/settings/tokens 去这个页面生成一个有写权限的token（repo：Full control of private repositories 和write:packages前打勾）
+define("REPO","pic");//必须是下面用户名下的公开仓库
+define("USER","yukai0228");//必须是当前GitHub用户名
+define("MAIL","602570645@qq.com");//
+define("TOKEN","409d67ed32cef9416fb1efc58ed51aea77d3bc8c");//https://github.com/settings/tokens 去这个页面生成一个有写权限的token（repo：Full control of private repositories 和write:packages前打勾）
 
 //数据库配置文件
 $database = array(
@@ -26,7 +26,7 @@ $database = array(
         'user' => 'pic',
         'pass' => '123456',
     );
-    
+
 
 $table = 'remote_imgs'; //表名字
 
@@ -44,18 +44,18 @@ try {
 }
 
 
-function GetIP(){ 
-	if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknown")) 
-	$ip = getenv("HTTP_CLIENT_IP"); 
-	else if (getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), "unknown")) 
-	$ip = getenv("HTTP_X_FORWARDED_FOR"); 
-	else if (getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknown")) 
-	$ip = getenv("REMOTE_ADDR"); 
-	else if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], "unknown")) 
-	$ip = $_SERVER['REMOTE_ADDR']; 
+function GetIP(){
+	if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknown"))
+	$ip = getenv("HTTP_CLIENT_IP");
+	else if (getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), "unknown"))
+	$ip = getenv("HTTP_X_FORWARDED_FOR");
+	else if (getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknown"))
+	$ip = getenv("REMOTE_ADDR");
+	else if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], "unknown"))
+	$ip = $_SERVER['REMOTE_ADDR'];
 	else
-	$ip = "unknow"; 
-	return($ip); 
+	$ip = "unknow";
+	return($ip);
 }
 function upload($url, $content)
 {
